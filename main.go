@@ -29,12 +29,9 @@ func main() {
 
 	result := "Walang forever:("
 
-	randomResult := rand.Int()
-	fmt.Println(randomResult)
-
-	if randomResult % 2 == 0 {
+	if rand.Int() % 2 == 0 {
 		result = strconv.Itoa(rand.Intn(100)) + "%"
 	}
 
-	fmt.Println("As of", time.Now().Format(time.RFC1123), " you two are: " + result)
+	fmt.Println("As of", time.Now().Format(time.RFC1123)," you two are: " + result)
 }
