@@ -4,11 +4,19 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"time"
 )
 
 const flamesHopeStr = "flameshope"
 
+func setUp() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
+
 func main() {
+
+	setUp()
+
 	fmt.Println("*** Welcome to Flames Hope! ***")
 
 	fmt.Print("Please enter your name: ")
@@ -19,11 +27,14 @@ func main() {
 	var crushName string
 	fmt.Scanf("%s", &crushName)
 
-	result := "Walang forever sa inyo :("
+	result := "Walang forever:("
 
-	if rand.Int31() % 2 == 0 {
+	randomResult := rand.Int()
+	fmt.Println(randomResult)
+
+	if randomResult % 2 == 0 {
 		result = strconv.Itoa(rand.Intn(100)) + "%"
 	}
 
-	fmt.Println("RESULT: " + result)
+	fmt.Println("As of", time.Now().Format(time.RFC1123), " you two are: " + result)
 }
